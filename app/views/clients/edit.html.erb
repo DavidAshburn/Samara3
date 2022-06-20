@@ -1,0 +1,14 @@
+<h1>Editing client</h1>
+
+<%= render "form", client: @client %>
+
+<br>
+
+<div class="row pt-0">
+  <div class="col-1">
+    <%= link_to "Show this client", @client, class:"btn btn-outline-secondary" %>
+  </div>
+  <div class="col-1">
+    <%= link_to "Back to clients", clients_path, class:"btn btn-outline-dark"%>
+  </div>
+</div>

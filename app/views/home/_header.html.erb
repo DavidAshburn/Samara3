@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #10c272;">
+  <div class="container-fluid">
+
+    <a class="navbar-brand">
+      <img src="/images/leaf.jpg" width="40" height="40" class="me-2" style="border-radius: 50%;">
+    </a> 
+    
+    <button class="navbar-toggler justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-1 mb-lg-0">
+        
+        
+        <li class="nav-item">
+          <%= link_to "Samara", root_path, class:"nav-link, h2 me-3" %>
+        </li>
+
+        <li class="nav-item, fs-5">
+          <div class="ms-2">
+          <%= link_to "About Us", home_about_path, class:"nav-link" %>
+          </div>
+        </li>
+
+        <% if user_signed_in? %>
+            <li class="nav-item, fs-5">
+              <%= link_to "Clients", clients_path, class:"nav-link" %>
+            </li>
+
+            <li class="nav-item, fs-5">
+              <%= link_to "Add Client", new_client_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item, fs-5">
+                <%= link_to "Edit Profile", edit_user_registration_path, class:"nav-link" %>
+            </li>
+        <% else %>
+            <li class="nav-item, fs-5">
+              <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %>
+            </li>
+            <li class="nav-item, fs-5">
+              <%= link_to "Sign In", new_user_session_path, class:"nav-link" %>
+            </li>
+        <% end %>
+
+        <% if user_signed_in? %>
+            <div class="ms-2 mt-1">
+              <li class="nav-item, fs-5">
+                <%= link_to "Sign Out", destroy_user_session_path, class:"btn btn-outline-light" %>
+              </li>
+            </div>
+            <li class="ms-2 mt-3">
+              <%= current_user.email %>
+            </li>
+            
+          
+        <% end %>
+        
+
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Find Name or Address" aria-label="Search">
+        <button class="btn btn-dark" type="submit">Search</button>
+      </form>
+    </div>
+
+  </div>
+</nav>
