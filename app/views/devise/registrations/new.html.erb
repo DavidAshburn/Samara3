@@ -11,6 +11,10 @@
           <%= render "devise/shared/error_messages", resource: resource %>
 
           <div class="mb-3">
+            <%= f.comp_field :email, autofocus: true, autocomplete: "Company", class:"form-control", placeholder:"Company" %>
+          </div>
+
+          <div class="mb-3">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control", placeholder:"Email" %>
           </div>
 

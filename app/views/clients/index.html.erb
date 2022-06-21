@@ -1,31 +1,31 @@
 <h1>Clients</h1>
 
 <div id="clients">
+     <table class="table table-striped table-hover w-auto">
+       <thead scope;="row" style="background-color: #11d47c;">
+         <tr>
+           <th scope="col" class="text-white">Name</th>
+           <th scope="col" class="text-white">Email</th>
+           <th scope="col" class="text-white">Phone</th>
+           <th scope="col" class="text-white">Address</th>
+           
+         </tr>
+       </thead>
+      <tbody>
 
-   <table class="table table-striped table-hover">
-     <thead style="background-color: #11d47c;">
-       <tr>
-         <th class="text-white">Name</th>
-         <th class="text-white">Email</th>
-         <th class="text-white">Phone</th>
-         <th class="text-white">Address</th>
-         
-       </tr>
-     </thead>
-    <tbody>
-
-      <% @clients.each do |client| %>
-        <% if client.user == current_user %>
-          <tr>
-            <td><%= link_to client.first_name + " " + client.last_name, client, class:"link-secondary" %></td>
-            <td><%= client.email %></td>
-            <td><%= client.phone %></td>
-            <td><%= client.mail_address %></td>   
-          </tr>
+        <% @clients.each do |client| %>
+          <% if client.user == current_user %>
+            <tr>
+              <td><%= link_to client.first_name + " " + client.last_name, client, class:"link-secondary" %></td>
+              <td><%= client.email %></td>
+              <td><%= client.phone %></td>
+              <td><%= client.mail_address %></td>   
+            </tr>
+            <% end %>
           <% end %>
-        <% end %>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  
 </div>
 
 <%= link_to "New client", new_client_path, class:"btn btn-success" %>
